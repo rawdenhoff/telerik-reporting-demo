@@ -1,0 +1,36 @@
+﻿@page "/"
+@using telerikReportingDemo.Interfaces
+@using telerikReportingDemo.Models
+@inject ITenantIdentifier tenantIdentifier
+@inject IInvoiceService invoiceService
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, @CompanyName!</h1>
+
+Welcome to your new app.
+
+@if(Invoice is not null)
+{
+    <p>
+        @Invoice.ToString();
+    </p>
+    
+}
+
+@code
+{
+    string CompanyName = "Invalid Visitor. Are you lost?";
+    Invoice? Invoice;
+    protected override async Task OnInitializedAsync()
+    {
+        var tenant = await tenantIdentifier.GetTenantAsync();
+
+        if(tenant is not null)
+        {
+            CompanyName = tenant.Name;
+            Invoice = await invoiceService.GetInvoiceAsync(1);
+        }
+
+        
+    }
+}
