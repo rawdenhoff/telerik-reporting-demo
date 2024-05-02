@@ -8,4 +8,14 @@
     <AssemblyName>$(AssemblyName.Replace(' ', '_'))</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Telerik.Reporting" Version="18.0.24.305" />
+    <PackageReference Include="Telerik.Reporting.JsonSerialization" Version="18.0.24.305" />
+    <PackageReference Include="Telerik.Reporting.Services.AspNetCore" Version="18.0.24.305" />
+    <PackageReference Include="Telerik.ReportViewer.BlazorNative" Version="18.0.24.305" />
+    <PackageReference Include="Telerik.UI.for.Blazor" Version="5.1.1" />
+    <PackageReference Include="Telerik.WebReportDesigner.Blazor" Version="18.0.24.305" />
+    <PackageReference Include="Telerik.WebReportDesigner.Services" Version="18.0.24.305" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,30 @@
 ﻿@page "/design-report"
 <h3>Design Report</h3>
 
+@using Telerik.WebReportDesigner.Blazor
+
+<style>
+    #wrd1 {
+        position: relative;
+        width: 1300px;
+        height: 880px;
+        padding-right: 50px;
+    }
+</style>
+@* Create the WebReportDesignerWidget *@
+<WebReportDesigner DesignerId="wrd1"
+                   ServiceUrl="/api/reportdesigner"
+                   Report="Report1.trdp"
+                   ReportViewerOptions="@(new ReportViewerOptions() {
+                templateUrl = "api/reportdesigner/resources/templates/telerikReportViewerTemplate.html",
+                scaleMode = Telerik.WebReportDesigner.Blazor.ScaleMode.Specific,
+                scale = 1.0,
+                pageMode = Telerik.WebReportDesigner.Blazor.PageMode.ContinuousScroll,
+                viewMode = Telerik.WebReportDesigner.Blazor.ViewMode.Interactive
+            })"
+                   ToolboxArea="new ToolboxAreaOptions() { Layout = ToolboxAreaLayout.List }"
+                   PropertiesArea="new PropertiesAreaOptions() { Layout = PropertiesAreaLayout.Categorized }" />
+
 @code {
 
 }
